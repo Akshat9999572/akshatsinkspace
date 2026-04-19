@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Akshat's Inkspace — Author Portfolio"
+version = "1.0.0"
+id = "artifacts/author-portfolio"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18981
+
+[services.development]
+run = "pnpm --filter @workspace/author-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/author-portfolio", "run", "build" ]
+publicDir = "artifacts/author-portfolio/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18981"
+BASE_PATH = "/"
