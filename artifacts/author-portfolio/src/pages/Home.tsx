@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
+import akshatPhoto from "@assets/IMG_20260420_114503_1776669242778.png";
 
 const BOOKS = [
   {
@@ -139,19 +141,13 @@ function useReveal() {
 }
 
 function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (v: boolean) => void }) {
+  const [, setLocation] = useLocation();
   const links = [
     { href: "#introduction", label: "Introduction" },
     { href: "#books", label: "Books" },
     { href: "#journals", label: "Journals" },
     { href: "#events", label: "Events" },
     { href: "#upcoming", label: "Upcoming" },
-  ];
-  const accentColors = [
-    "var(--brand-primary)",
-    "var(--brand-secondary)",
-    "var(--brand-tertiary)",
-    "var(--brand-secondary)",
-    "var(--brand-primary)",
   ];
 
   return (
@@ -191,6 +187,7 @@ function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (v:
         <button
           className="hidden md:flex items-center justify-center px-6 py-2 rounded-md signature-gradient text-white font-sans text-sm uppercase tracking-wider scale-100 hover:scale-105 active:scale-95 transition-all duration-300"
           style={{ color: "var(--brand-on-primary)" }}
+          onClick={() => setLocation("/contact")}
           data-testid="button-inquire"
         >
           Inquire
@@ -223,6 +220,13 @@ function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (v:
               {link.label}
             </a>
           ))}
+          <button
+            className="text-left font-sans uppercase tracking-widest text-[11px] font-semibold"
+            style={{ color: "var(--brand-primary)" }}
+            onClick={() => { setMenuOpen(false); setLocation("/contact"); }}
+          >
+            Inquire
+          </button>
         </div>
       )}
     </nav>
@@ -259,29 +263,11 @@ function HeroSection() {
           </span>
         </h1>
         <p
-          className="font-sans text-lg leading-relaxed mb-10 max-w-md border-l-2 pl-6"
+          className="font-sans text-base leading-relaxed mb-0 max-w-md border-l-2 pl-6"
           style={{ color: "var(--brand-on-surface-variant)", borderColor: "var(--brand-tertiary)" }}
         >
-          Award-winning author and essayist exploring the intersections of memory, architecture, and personal history in the modern age.
+          Dr. Akshat Shukla is an elementary educator in the government sector and holds a Ph.D. in Ecocriticism from CSJM University Kanpur (2022). His poems and short stories have appeared in various journals, including the internationally acclaimed haiku journal <em>Frogpond</em> (published by the Haiku Society of America), and in the anthology <em>Petals of Haiku: An Anthology</em>. His book <em>Ethereal Access</em> is available on Amazon.
         </p>
-        <div className="flex flex-wrap gap-4">
-          <button
-            className="px-8 py-3 rounded-md signature-gradient text-white font-sans text-sm tracking-widest uppercase hover:opacity-90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 group flex items-center gap-2"
-            data-testid="button-read-more"
-          >
-            Read More
-            <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" style={{ fontSize: "16px" }}>arrow_forward</span>
-          </button>
-          <button
-            className="px-8 py-3 rounded-md border font-sans text-sm tracking-widest uppercase transition-all duration-300 hover:text-white"
-            style={{ borderColor: "var(--brand-secondary)", color: "var(--brand-secondary)" }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "var(--brand-secondary)"; (e.currentTarget as HTMLButtonElement).style.color = "#fff"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; (e.currentTarget as HTMLButtonElement).style.color = "var(--brand-secondary)"; }}
-            data-testid="button-press-kit"
-          >
-            View Press Kit
-          </button>
-        </div>
       </div>
 
       <div className="lg:col-span-7 order-1 lg:order-2 relative h-full">
@@ -297,7 +283,7 @@ function HeroSection() {
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
             style={{
-              backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAxyUo2hWdNf6MDYl6GfqBDU5l0dM3QMqGTy7YJBxk6To8QVTbhG8Wqg9_RZ7xRCqZY5HgxLoQ3_b6TZWMhPE5W-JKU_v2ttM71dTaZ6YBjTv1GHFffb7My7e7k7nvlxXzCGe2SPLFEA_R8rOoLeeOP25KNZS9s8f6ocIFacYQvn63Y4-Nsb7ZpAOBV2SlscIS18yz57jtkOUnhv-zU3ZFNIgTESu4qArLgkjR4MA31I02u1EGGDK0sNNGLXKUWokAqVeA8g5PpdjbL')",
+              backgroundImage: `url(${akshatPhoto})`,
               backgroundPosition: "50% 20%",
             }}
           />
