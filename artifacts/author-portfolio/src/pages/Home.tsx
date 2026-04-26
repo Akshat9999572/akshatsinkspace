@@ -11,7 +11,7 @@ const BOOKS = [
     id: 1,
     title: "Dew Drops",
     description: "Dedicated to childhood, this haiku collection by Dr. Akshat Shukla explores innocence, nature, and the fleeting moments of early life.",
-    year: "2024",
+    year: "2026",
     genre: "Haiku Collection",
     accent: "var(--brand-secondary)",
     img: dewDropsImg,
