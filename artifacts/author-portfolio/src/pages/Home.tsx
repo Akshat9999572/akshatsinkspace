@@ -3,30 +3,12 @@ import { useLocation } from "wouter";
 import akshatPhoto from "@assets/1000267151_1777190353205.png";
 import frogpondImg from "@assets/Screenshot_2026-04-20-11-21-09-628_com.android.chrome-edit_1777190353201.jpg";
 import petalsImg from "@assets/Screenshot_2026-04-20-11-17-21-323_com.android.chrome-edit_1777190353202.jpg";
-import dewDropsImg from "@assets/Screenshot_2026-04-16-22-15-35-866_com.android.chrome_1777190353203.jpg";
+import dewDropsImg from "@assets/Screenshot_2026-04-16-22-15-35-866_com.android.chrome_1777191210749.jpg";
 import etherealImg from "@assets/IMG_20260420_111632_1777190353204.jpg";
 
 const BOOKS = [
   {
     id: 1,
-    title: "Frogpond",
-    description: "Published by the Haiku Society of America, Frogpond is an internationally acclaimed haiku journal featuring Dr. Akshat Shukla's haiku poetry.",
-    year: "2023",
-    genre: "Haiku Journal",
-    accent: "var(--brand-primary)",
-    img: frogpondImg,
-  },
-  {
-    id: 2,
-    title: "Petals of Haiku: An Anthology",
-    description: "A curated anthology edited by Gabriela Marie Milton, featuring haiku poems by contributors from around the world, including Dr. Akshat Shukla.",
-    year: "2023",
-    genre: "Anthology",
-    accent: "var(--brand-tertiary)",
-    img: petalsImg,
-  },
-  {
-    id: 3,
     title: "Dew Drops",
     description: "Dedicated to childhood, this haiku collection by Dr. Akshat Shukla explores innocence, nature, and the fleeting moments of early life.",
     year: "2024",
@@ -35,13 +17,31 @@ const BOOKS = [
     img: dewDropsImg,
   },
   {
-    id: 4,
+    id: 2,
     title: "Ethereal Excesses",
     description: "A compilation of haikus and short-length poems with eclectic themes. The haikus adhere to a syllabic pattern and hark back to nature; other poems are in free verse, written on special occasions or just randomly at night.",
     year: "2024",
     genre: "Poetry",
     accent: "var(--brand-primary)",
     img: etherealImg,
+  },
+  {
+    id: 3,
+    title: "Frogpond",
+    description: "Published by the Haiku Society of America, Frogpond is an internationally acclaimed haiku journal featuring Dr. Akshat Shukla's haiku poetry.",
+    year: "2023",
+    genre: "Haiku Journal",
+    accent: "var(--brand-primary)",
+    img: frogpondImg,
+  },
+  {
+    id: 4,
+    title: "Petals of Haiku: An Anthology",
+    description: "A curated anthology edited by Gabriela Marie Milton, featuring haiku poems by contributors from around the world, including Dr. Akshat Shukla.",
+    year: "2023",
+    genre: "Anthology",
+    accent: "var(--brand-tertiary)",
+    img: petalsImg,
   },
 ];
 
