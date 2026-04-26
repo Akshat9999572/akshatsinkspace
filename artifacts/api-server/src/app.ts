@@ -1,9 +1,13 @@
 import express, { type Express } from "express";
 import cors from "cors";
-import pinoHttp from "pino-http";
+import * as pinoHttpModule from "pino-http";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import router from "./routes";
 import { logger } from "./lib/logger";
+
+// pino-http is CJS; handle both default and namespace exports across module systems
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const pinoHttp: any = (pinoHttpModule as any).default ?? pinoHttpModule;
 
 const app: Express = express();
 
