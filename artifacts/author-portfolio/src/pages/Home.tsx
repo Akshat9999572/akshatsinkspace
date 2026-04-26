@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import akshatPhoto from "@assets/1000267151_1777190353205.png";
 import frogpondImg from "@assets/Screenshot_2026-04-20-11-21-09-628_com.android.chrome-edit_1777190353201.jpg";
 import petalsImg from "@assets/Screenshot_2026-04-20-11-17-21-323_com.android.chrome-edit_1777190353202.jpg";
-import dewDropsImg from "@assets/Screenshot_2026-04-16-22-15-35-866_com.android.chrome_1777191210749.jpg";
+import dewDropsImg from "@assets/IMG_20260426_133831_1777191660497.jpg";
 import etherealImg from "@assets/IMG_20260420_111632_1777190353204.jpg";
 
 const BOOKS = [
@@ -15,6 +15,8 @@ const BOOKS = [
     genre: "Haiku Collection",
     accent: "var(--brand-secondary)",
     img: dewDropsImg,
+    link: "https://ebooks.bookleafpub.com/product-page/dew-drops",
+    linkLabel: "Read",
   },
   {
     id: 2,
@@ -24,6 +26,8 @@ const BOOKS = [
     genre: "Poetry",
     accent: "var(--brand-primary)",
     img: etherealImg,
+    link: "https://www.amazon.in/Ethereal-Excesses-Akshat-Shukla/dp/9357746692/",
+    linkLabel: "Buy on Amazon",
   },
   {
     id: 3,
@@ -33,6 +37,8 @@ const BOOKS = [
     genre: "Haiku Journal",
     accent: "var(--brand-primary)",
     img: frogpondImg,
+    link: "https://www.hsa-haiku.org/frogpond/2023-issue46-3/index.html",
+    linkLabel: "Read Issue",
   },
   {
     id: 4,
@@ -42,6 +48,8 @@ const BOOKS = [
     genre: "Anthology",
     accent: "var(--brand-tertiary)",
     img: petalsImg,
+    link: "https://www.amazon.in/Petals-Haiku-Anthology-Literary-Revelations-ebook/dp/B0D578FJWJ/",
+    linkLabel: "Buy on Amazon",
   },
 ];
 
@@ -267,10 +275,21 @@ function BooksSection() {
                     {book.description}
                   </p>
                 </div>
-                <div className="mt-4 pt-4 border-t" style={{ borderColor: "var(--brand-surface-variant)" }}>
+                <div className="mt-4 pt-4 border-t flex items-center justify-between" style={{ borderColor: "var(--brand-surface-variant)" }}>
                   <span className="font-sans text-xs font-bold tracking-widest uppercase" style={{ color: book.accent }}>
                     {book.year} · {book.genre}
                   </span>
+                  {book.link && (
+                    <a
+                      href={book.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-sans text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded-full transition-all hover:opacity-80"
+                      style={{ background: book.accent, color: "#fff" }}
+                    >
+                      {book.linkLabel}
+                    </a>
+                  )}
                 </div>
               </div>
             </article>
