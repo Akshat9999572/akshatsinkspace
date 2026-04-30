@@ -6,6 +6,12 @@ import petalsImg from "@assets/Screenshot_2026-04-20-11-17-21-323_com.android.ch
 import dewDropsImg from "@assets/IMG_20260426_133831_1777191660497.jpg";
 import etherealImg from "@assets/IMG_20260420_111632_1777190353204.jpg";
 
+import gallery1 from "@assets/file_00000000f1747207b8f831f625193335_1777574801692.png";
+import gallery2 from "@assets/file_000000001d8c720799a48780e5b21095_1777574801741.png";
+import gallery3 from "@assets/file_0000000029247207979fba3d6aa1c1a8_1777574801760.png";
+import gallery4 from "@assets/file_0000000096c47207ab20fc9fec8bc72a_1777574801784.png";
+import gallery5 from "@assets/file_00000000c87472079ad8509fc3cb6f33_1777574801810.png";
+
 const BOOKS = [
   {
     id: 1,
@@ -53,6 +59,14 @@ const BOOKS = [
   },
 ];
 
+const GALLERY = [
+  { id: 1, src: gallery4, alt: "Poetry for every season of life — all four books" },
+  { id: 2, src: gallery5, alt: "InkSpace by Akshat — Ideas deserve space" },
+  { id: 3, src: gallery1, alt: "Dew Drops & Ethereal Excesses — Two poetic collections" },
+  { id: 4, src: gallery2, alt: "Dew Drops and Ethereal Excesses — side by side" },
+  { id: 5, src: gallery3, alt: "Frogpond and Petals of Haiku — Haiku that lingers" },
+];
+
 function useReveal() {
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
@@ -77,6 +91,7 @@ function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (v:
   const links = [
     { href: "#introduction", label: "Introduction" },
     { href: "#books", label: "Books & Journals" },
+    { href: "#gallery", label: "Gallery" },
   ];
 
   return (
@@ -96,16 +111,12 @@ function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (v:
         </a>
 
         <div className="hidden md:flex items-center space-x-8">
-          {links.map((link, i) => (
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className="font-sans font-medium uppercase tracking-widest text-[11px] nav-link transition-colors duration-300"
-              style={{
-                color: i === 0 ? "var(--brand-primary)" : "var(--brand-on-surface-variant)",
-                borderBottom: i === 0 ? "1px solid var(--brand-primary)" : undefined,
-                paddingBottom: i === 0 ? "4px" : undefined,
-              }}
+              style={{ color: "var(--brand-on-surface-variant)" }}
               data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
             >
               {link.label}
@@ -300,6 +311,111 @@ function BooksSection() {
   );
 }
 
+function GallerySection() {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setLightbox(null);
+    }
+    if (lightbox) document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [lightbox]);
+
+  return (
+    <section
+      id="gallery"
+      className="py-32 px-6 md:px-12 relative reveal"
+      style={{ background: "var(--brand-background)" }}
+    >
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16">
+          <p className="font-sans text-sm tracking-widest uppercase mb-4 flex items-center gap-2 font-bold" style={{ color: "var(--brand-secondary)" }}>
+            <span className="w-4 h-4 rounded-full inline-block" style={{ background: "var(--brand-secondary)" }} />
+            Visual Stories
+          </p>
+          <h2 className="font-serif text-4xl md:text-6xl italic" style={{ color: "var(--brand-on-background)", fontFamily: "'Newsreader', serif" }}>
+            Gallery
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* First image spans full width */}
+          <div
+            className="md:col-span-2 rounded-2xl overflow-hidden cursor-zoom-in group relative shadow-md hover:shadow-2xl transition-all duration-500"
+            onClick={() => setLightbox(GALLERY[0])}
+          >
+            <img
+              src={GALLERY[0].src}
+              alt={GALLERY[0].alt}
+              className="w-full object-cover max-h-[500px] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+            />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.5), transparent)" }}>
+              <span className="text-white font-sans text-sm tracking-widest uppercase font-semibold">View Full Size</span>
+            </div>
+          </div>
+
+          {/* Second image spans full width */}
+          <div
+            className="md:col-span-2 rounded-2xl overflow-hidden cursor-zoom-in group relative shadow-md hover:shadow-2xl transition-all duration-500"
+            onClick={() => setLightbox(GALLERY[4])}
+          >
+            <img
+              src={GALLERY[4].src}
+              alt={GALLERY[4].alt}
+              className="w-full object-cover max-h-[480px] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+            />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.5), transparent)" }}>
+              <span className="text-white font-sans text-sm tracking-widest uppercase font-semibold">View Full Size</span>
+            </div>
+          </div>
+
+          {/* Remaining three in a row */}
+          {GALLERY.slice(1, 4).map((item) => (
+            <div
+              key={item.id}
+              className={`${item.id === 3 ? "md:col-span-2 lg:col-span-1" : ""} rounded-2xl overflow-hidden cursor-zoom-in group relative shadow-md hover:shadow-2xl transition-all duration-500`}
+              onClick={() => setLightbox(item)}
+            >
+              <img
+                src={item.src}
+                alt={item.alt}
+                className="w-full h-full object-cover max-h-[420px] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+              />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.5), transparent)" }}>
+                <span className="text-white font-sans text-sm tracking-widest uppercase font-semibold">View Full Size</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12"
+          style={{ background: "rgba(0,0,0,0.92)" }}
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-6 right-6 text-white opacity-70 hover:opacity-100 transition-opacity"
+            onClick={() => setLightbox(null)}
+            aria-label="Close"
+          >
+            <span className="material-symbols-outlined text-4xl">close</span>
+          </button>
+          <img
+            src={lightbox.src}
+            alt={lightbox.alt}
+            className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer
@@ -334,6 +450,7 @@ export default function Home() {
       <main className="pt-32 pb-0 overflow-hidden">
         <HeroSection />
         <BooksSection />
+        <GallerySection />
       </main>
       <Footer />
     </div>
