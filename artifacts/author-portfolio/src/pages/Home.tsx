@@ -226,7 +226,6 @@ function HeroSection() {
           className="absolute -left-16 top-1/4 transform -rotate-90 hidden xl:block mix-blend-multiply opacity-50"
           style={{ color: "var(--brand-tertiary)" }}
         >
-          <p className="font-sans text-xs tracking-widest uppercase font-bold">Est. 2014</p>
         </div>
         <div className="absolute -top-10 -right-10 w-64 h-64 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse" style={{ background: "var(--brand-tertiary-container)" }} />
         <div className="absolute -bottom-10 -left-10 w-72 h-72 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-pulse" style={{ background: "var(--brand-primary-container)", animationDelay: "1s" }} />
