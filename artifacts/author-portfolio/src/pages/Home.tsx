@@ -12,6 +12,9 @@ import gallery3 from "@assets/file_0000000029247207979fba3d6aa1c1a8_177757480176
 import gallery4 from "@assets/file_0000000096c47207ab20fc9fec8bc72a_1777574801784.png";
 import gallery5 from "@assets/file_00000000c87472079ad8509fc3cb6f33_1777574801810.png";
 
+import monsoonImg from "@assets/file_00000000a7a4720b9f7dd762e9a316fd_1777749100868.png";
+import hopesImg from "@assets/file_00000000a5c0720bafc0f89c298d5788_1777749150660.png";
+
 const BOOKS = [
   {
     id: 1,
@@ -59,6 +62,57 @@ const BOOKS = [
   },
 ];
 
+const POEMS = [
+  {
+    id: 1,
+    title: "Monsoon",
+    img: monsoonImg,
+    lines: [
+      "the dreams-soaked nights,",
+      "of my first monsoon",
+      "passed in your warm arms,",
+      "",
+      "linger in the drenched words",
+      "of my worn-out diary,",
+      "still lying under the tender shadow",
+      "of our neglected neem tree.",
+      "",
+      "when it rains hard, and the winds",
+      "thrust open the window,",
+      "the aroma of your dark curls",
+      "seeps in, captivating my thoughts",
+      "coiling in the corners of our locked room",
+    ],
+    accent: "var(--brand-primary)",
+  },
+  {
+    id: 2,
+    title: "Hopes",
+    img: hopesImg,
+    lines: [
+      "art in my tongue",
+      "i lick my wounds",
+      "i crawl and cry",
+      "ten teardrops in my eye",
+      "",
+      "ink in my blood",
+      "creative flood",
+      "shadows around me",
+      "and i kick them",
+      "",
+      "words reside in me",
+      "and i pick them",
+      "thoughts carnivore",
+      "I don't run anymore",
+      "",
+      "dark night bright sky",
+      "hopes high",
+      "hopes high",
+    ],
+    accent: "var(--brand-secondary)",
+  },
+];
+
 const GALLERY = [
   { id: 1, src: gallery4, alt: "Poetry for every season of life — all four books" },
   { id: 2, src: gallery5, alt: "InkSpace by Akshat — Ideas deserve space" },
@@ -91,6 +145,7 @@ function Navbar({ menuOpen, setMenuOpen }: { menuOpen: boolean; setMenuOpen: (v:
   const links = [
     { href: "#introduction", label: "Introduction" },
     { href: "#books", label: "Books & Journals" },
+    { href: "#poems", label: "Poems" },
     { href: "#gallery", label: "Gallery" },
   ];
 
@@ -322,6 +377,61 @@ function BooksSection() {
   );
 }
 
+function PoemsSection() {
+  return (
+    <section
+      id="poems"
+      className="py-32 px-6 md:px-12 relative reveal"
+      style={{ background: "var(--brand-surface-container)" }}
+    >
+      <div className="absolute top-0 left-0 w-full h-1" style={{ background: "linear-gradient(to right, var(--brand-secondary), var(--brand-primary), var(--brand-tertiary))" }} />
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16">
+          <p className="font-sans text-sm tracking-widest uppercase mb-4 flex items-center gap-2 font-bold" style={{ color: "var(--brand-primary)" }}>
+            <span className="w-4 h-4 rounded-full inline-block" style={{ background: "var(--brand-primary)" }} />
+            Verses
+          </p>
+          <h2 className="font-serif text-4xl md:text-6xl italic" style={{ color: "var(--brand-on-background)", fontFamily: "'Newsreader', serif" }}>
+            Poems
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {POEMS.map((poem) => (
+            <article key={poem.id} className="flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500" style={{ background: "var(--brand-surface-container-lowest)" }}>
+              <div className="w-full overflow-hidden relative" style={{ maxHeight: "320px" }}>
+                <img
+                  src={poem.img}
+                  alt={poem.title}
+                  className="w-full object-cover object-center hover:scale-[1.03] transition-transform duration-700 ease-out"
+                  style={{ maxHeight: "320px" }}
+                />
+              </div>
+              <div className="p-8 flex flex-col gap-4 flex-grow">
+                <h3
+                  className="font-serif text-3xl font-bold"
+                  style={{ color: poem.accent, fontFamily: "'Newsreader', serif" }}
+                >
+                  {poem.title}
+                </h3>
+                <div className="font-serif text-base leading-loose italic" style={{ color: "var(--brand-on-surface-variant)", fontFamily: "'Newsreader', serif" }}>
+                  {poem.lines.map((line, i) =>
+                    line === "" ? (
+                      <br key={i} />
+                    ) : (
+                      <span key={i} className="block">{line}</span>
+                    )
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function GallerySection() {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
 
@@ -461,6 +571,7 @@ export default function Home() {
       <main className="pt-32 pb-0 overflow-hidden">
         <HeroSection />
         <BooksSection />
+        <PoemsSection />
         <GallerySection />
       </main>
       <Footer />
