@@ -205,7 +205,19 @@ function HeroSection() {
           className="font-sans text-base leading-relaxed mb-0 max-w-md border-l-2 pl-6"
           style={{ color: "var(--brand-on-surface-variant)", borderColor: "var(--brand-tertiary)" }}
         >
-          Dr. Akshat Shukla is an elementary educator in the government sector and holds a Ph.D. in Ecocriticism from CSJM University Kanpur (2022). His poems and short stories have appeared in various journals, including the internationally acclaimed haiku journal <em>Frogpond</em> (published by the Haiku Society of America), and in the anthology <em>Petals of Haiku: An Anthology</em>. His book <em>Ethereal Excesses</em> is available on Amazon.
+          Dr. Akshat Shukla serves as an elementary educator in the government sector and holds a Ph.D. in Ecocriticism from CSJM University, Kanpur (2022). His poetic and narrative sensibilities find expression in a range of esteemed publications, including the internationally acclaimed haiku journal <em>Frogpond</em> (published by the Haiku Society of America) and the anthology <em>Petals of Haiku: An Anthology</em>. His book <em>Ethereal Excesses</em>, available on Amazon, further attests to his lyrical and imaginative depth.
+        </p>
+        <p
+          className="font-sans text-base leading-relaxed mt-5 max-w-md border-l-2 pl-6"
+          style={{ color: "var(--brand-on-surface-variant)", borderColor: "var(--brand-secondary)" }}
+        >
+          He has also published his creative writings widely across numerous journals and literary platforms, including <em>Modern Research Studies</em>, <em>Ashvamegh Journal</em>, <em>The Criterion Journal</em>, <em>Galaxy Journal</em>, <em>Indian Ruminations</em>, <em>121Words</em>, <em>Fictional Café</em>, <em>Contemporary Literary Review India</em>, <em>The Expression Journal</em>, <em>Medium</em>, <em>Ad Hoc Fiction</em>, and <em>The Literary Herald</em>, among others.
+        </p>
+        <p
+          className="font-sans text-base leading-relaxed mt-5 max-w-md border-l-2 pl-6"
+          style={{ color: "var(--brand-on-surface-variant)", borderColor: "var(--brand-tertiary)" }}
+        >
+          Deeply engaged with the reflective disciplines of psychology and philosophy, and profoundly influenced by the art of cinema, Dr. Shukla's intellectual and creative pursuits are marked by a contemplative richness. He also nurtures a keen interest in artificial intelligence, exploring its evolving intersections with human thought and creativity. Complementing his literary endeavors is his passion for graphic design, through which he extends his aesthetic vision into the visual realm.
         </p>
       </div>
 
