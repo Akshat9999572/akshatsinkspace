@@ -211,7 +211,7 @@ function HeroSection() {
           className="font-sans text-base leading-relaxed mt-5 max-w-md border-l-2 pl-6"
           style={{ color: "var(--brand-on-surface-variant)", borderColor: "var(--brand-secondary)" }}
         >
-          He has also published his creative writings widely across numerous journals and literary platforms, including <em>Modern Research Studies</em>, <em>Ashvamegh Journal</em>, <em>The Criterion Journal</em>, <em>Galaxy Journal</em>, <em>Indian Ruminations</em>, <em>121Words</em>, <em>Fictional Café</em>, <em>Contemporary Literary Review India</em>, <em>The Expression Journal</em>, <em>Medium</em>, <em>Ad Hoc Fiction</em>, and <em>The Literary Herald</em>, among others.
+          He has also published his creative writings widely across numerous journals and literary platforms, including <em>Modern Research Studies</em>, <em>Ashvamegh Journal</em>, <em>The Criterion Journal</em>, <em>Galaxy Journal</em>, <em>Indian Ruminations</em>, <em>121Words</em>, <em>Fictional Café</em>, <em>Contemporary Literary Review India</em>, <em>The Expression Journal</em>, <em>Medium</em>, <em>Ad Hoc Fiction</em>, <em>Pixel Heart</em>, and <em>The Literary Herald</em>, among others.
         </p>
         <p
           className="font-sans text-base leading-relaxed mt-5 max-w-md border-l-2 pl-6"
