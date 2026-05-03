@@ -118,12 +118,29 @@ export default function Contact() {
 
       {/* Footer strip */}
       <footer
-        className="py-6 px-12 border-t-4 text-center"
+        className="py-8 px-6 md:px-12 border-t-4 text-center"
         style={{ background: "var(--brand-surface-container)", borderColor: "var(--brand-primary)" }}
       >
-        <p className="font-sans text-xs tracking-widest uppercase" style={{ color: "var(--brand-outline)" }}>
-          Akshat Shukla @2026
-        </p>
+        <div className="flex flex-col items-center gap-3">
+          <p className="font-sans text-sm leading-relaxed" style={{ color: "var(--brand-on-surface-variant)" }}>
+            © 2026 Inkspace by Akshat. Crafted with words and intention. “This space runs on ink and introspection.”
+          </p>
+          <div className="flex items-center gap-3">
+            <p className="font-sans text-xs tracking-widest uppercase" style={{ color: "var(--brand-outline)" }}>
+              © Inkspace by Akshat.
+            </p>
+            <a
+              href="https://x.com/AkshaTshuklA00"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Inkspace by Akshat on X"
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border font-sans text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+              style={{ borderColor: "var(--brand-primary)", color: "var(--brand-primary)" }}
+            >
+              X
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
