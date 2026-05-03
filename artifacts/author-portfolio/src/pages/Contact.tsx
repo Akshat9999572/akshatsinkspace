@@ -134,10 +134,12 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Inkspace by Akshat on X"
-              className="inline-flex h-8 w-8 items-center justify-center rounded-full border font-sans text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
-              style={{ borderColor: "var(--brand-primary)", color: "var(--brand-primary)" }}
+              className="inline-flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
+              style={{ background: "var(--brand-primary)", borderColor: "var(--brand-primary)", color: "var(--brand-surface-container-lowest)" }}
             >
-              X
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.655l-5.214-6.817-5.963 6.817H1.687l7.73-8.835L1.267 2.25h6.824l4.713 6.231 5.44-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z" />
+              </svg>
             </a>
           </div>
         </div>
