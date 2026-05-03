@@ -2,6 +2,8 @@ import { useLocation } from "wouter";
 
 export default function Contact() {
   const [, setLocation] = useLocation();
+  const inquiryEmails = ["akshatshuklawrites@gmail.com", "akshatshuklaasays@gmail.com"];
+  const inquiryMailto = `mailto:${inquiryEmails.join(",")}`;
 
   return (
     <div
@@ -85,19 +87,24 @@ export default function Contact() {
               >
                 Akshat Shukla
               </p>
-              <a
-                href="mailto:akshatshuklawrites@gmail.com"
-                className="font-sans text-base font-medium transition-all duration-200 hover:underline underline-offset-4"
-                style={{ color: "var(--brand-primary)" }}
-                data-testid="link-email"
-              >
-                akshatshuklawrites@gmail.com
-              </a>
+              <div className="flex flex-col gap-2">
+                {inquiryEmails.map((email, index) => (
+                  <a
+                    key={email}
+                    href={`mailto:${email}`}
+                    className="font-sans text-base font-medium transition-all duration-200 hover:underline underline-offset-4"
+                    style={{ color: "var(--brand-primary)" }}
+                    data-testid={index === 0 ? "link-email" : "link-email-secondary"}
+                  >
+                    {email}
+                  </a>
+                ))}
+              </div>
             </div>
 
             <div className="mt-10 relative z-10">
               <a
-                href="mailto:akshatshuklawrites@gmail.com"
+                href={inquiryMailto}
                 className="inline-flex items-center gap-2 px-8 py-3 rounded-md signature-gradient text-white font-sans text-sm uppercase tracking-widest hover:opacity-90 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
                 data-testid="button-send-email"
               >
